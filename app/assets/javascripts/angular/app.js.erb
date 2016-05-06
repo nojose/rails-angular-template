@@ -1,0 +1,13 @@
+<% 
+  assets_path = "/assets/templates/";
+%>
+'use strict';
+
+var SERVICE_URL = "";
+var ASSETS_PATH = "<%= assets_path %>";
+
+var dummyApp = angular.module('dummyApp',[]);
+
+dummyApp.config(['$httpProvider', function($httpProvider){
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+}]);
